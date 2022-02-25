@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Props" />
+
+
+# Props
+
+<h4>Props can be considered as function arguments that describe what should appear on screen</h4>
+<p>Props can be:</p>
+<ul>
+    <li>
+built-in javascript 
+    <a 
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#javascript_types" 
+        target="_blank"
+    >
+         &nbsp; data types
+    </a>
+    </li>
+    <li>
+            Custom data types 
+    </li>
+    <li>
+            html attributes
+    </li>
+    <li>
+            <a 
+                href="https://reactjs.org/docs/render-props.html#gatsby-focus-wrapper"
+                target="_blank"
+            >
+                react components
+            </a>
+    </li>
+</ul>
+
+<p>
+    More information on props can be found
+    <a href="https://beta.reactjs.org/learn/passing-props-to-a-component" target="_blank">&nbsp;here</a>
+</p>
+
+```javascript
+function MyComponent({firstName, lastName}) {
+    return (<><p>{firstName}</p><p>{lastName}</p></>)
+};
+```

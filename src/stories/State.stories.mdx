@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="State/Overview" />
+
+<h4>State</h4>
+<ul>
+<li>State like props hold information about the component.</li>
+<li>Unlike props, state are mutable aka can be changed based on interaction, renders</li>
+<li>component itself would set the initial data which can be either hard coded or derived from props</li>
+</ul>
+
+<p>Read more about <a href="https://github.com/uberVU/react-guide/blob/master/props-vs-state.md" target="_blank">state and props</a> difference</p>
+<a href="https://reactjs.org/docs/faq-state.html" target="_blank">State FAQ's</a>
+
+<h4> State Management</h4>
+
+
+<h4>Component / Local State</h4>
+<p>Component state or local state can be managed with following hooks:</p>
+<ul>
+    <li>
+        <code>useState</code>
+    </li>
+    <li>
+        <code>useReducer</code>
+    </li>
+    <li>
+        <code>useRef</code>
+    </li>
+</ul>
+<p>Read more about setting state structure <a href="https://beta.reactjs.org/learn/choosing-the-state-structure" target="_blank">here</a></p>
+<h4>Global State</h4>
+<p>Global state refers to data that might be required by deeply nested components throughout the application</p>
+<p>React provides <code>context</code> to manage this kind of requirement</p>
+<p>Read more about context <a href="https://reactjs.org/docs/context.html" target="_blank">here</a></p>

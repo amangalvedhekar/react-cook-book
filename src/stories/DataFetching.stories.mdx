@@ -1,0 +1,171 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="DataFetching/Overview" />
+
+<h4>Data fetching in react can be achieved by using:</h4>
+<ul>
+    <li>
+        <code>fetch()</code> from fetch API
+    </li>
+<li>
+libraries like <code>axios</code> for adding <code>interceptors</code>
+</li>
+<li>
+libraries like <code>react-query</code> or <code>swr</code> for advanced techniques
+</li>
+</ul>
+<h4>Javascript concepts required/good to know:</h4>
+<ul>
+<li>
+<code>Promise</code>
+</li>
+<li>
+ <code>async/await</code> syntactic sugar for <code>thenable</code> callbacks
+</li>
+<li>
+<code>IIFE</code>
+</li>
+<li>
+<code>try/catch</code>
+</li>
+</ul>
+<h4>
+For data fetching <code>useEffect</code> can be used to execute callbacks
+</h4>
+
+```javascript
+import {useEffect} from 'react';
+
+function DataFetching() {
+  /*this block is executed only once when the component is mounted*/
+  useEffect(() => {
+    (async () => {
+      /*api call to retreive data and set to state variable*/
+    })();
+  },[]);
+}
+```
+<h4>
+    To make this data available for components to render on screen <code>state hooks</code> are used
+</h4>
+
+```javascript
+import React, {useEffect, useState} from 'react';
+
+function DataFetching() {
+  /* useState hooks set the data when setFetchedData is called*/
+  /*calling useState here initializes the state data, argument passed to this function is used as initial value*/
+  const [fetchedData, setFetchedData] = useState([]);
+  /*above line of code initializes fetchedData to an empty array*/
+  /*this block is executed only once when the component is mounted*/
+  useEffect(() => {
+    (async () => {
+      const response = await fetch('url');
+      if (response.ok) {
+        const data = await response.json();
+        setFetchedData(data);
+      }
+    })();
+  },[]);
+}
+```
+
+<h3>
+    Rendering data on screen
+</h3>
+<ul>
+<li>
+<p>
+To render data on screen <code>return()</code> with component to be shown
+</p>
+
+```javascript
+    import React, {useEffect, useState} from 'react';
+    
+    function DataFetching() {
+      
+      const [fetchedData, setFetchedData] = useState([]);
+      
+      useEffect(() => {
+        (async () => {
+          const response = await fetch('url');
+          if (response.ok) {
+            const data = await response.json();
+            setFetchedData(data);
+          }
+        })();
+      },[]);
+      
+      return(
+        /*
+          <></> is a shorthand for <React.Fragment>
+          here we are returning a fragment or a single JSX element with list of element
+        * */
+        <>
+          {fetchedData.length > 0 && (
+            <ul>
+              {fetchedData.map(data => (<li key={data.id}>{data.name}</li>))}
+            </ul>
+          )}
+        </>
+      );
+    }
+```
+</li>
+<li>
+<p>To render error message set state variable to keep track of error by wrapping api call in <code>try/catch</code> block</p>
+
+```javascript
+    
+  import React, {useEffect, useState} from 'react';
+
+    function DataFetching() {
+      
+      const [fetchedData, setFetchedData] = useState([]);
+      const [isError, setIsError] = useState(false);
+      
+      useEffect(() => {
+        (async () => {
+          try {
+            const response = await fetch('url');
+            if (response.ok) {
+              const data = await response.json();
+              setFetchedData(data);
+            } else {
+              setIsError(true);
+            }
+          } catch (e) {
+            setIsError(true);
+          }
+        })();
+      },[]);
+
+      return (
+        <>
+          {isError && (<p>show error message here</p>)}
+          {fetchedData.length > 0 && (
+            <ul>
+              {fetchedData.map(data => (<li key={data.id}>{data.name}</li>))}
+            </ul>
+          )}
+        </>
+      );
+    }
+```
+</li>
+
+</ul>
+<p>
+    While the above code should work just fine, there are few issues with this approach
+
+</p>
+
+<ul>
+<li>
+It can become cumbersome if we have to make Api calls in multiple components
+</li>
+<li>
+<code>fetch</code>, as per specs doc, doesnt throw an error unless its network related.
+we would require some sort of middleware to explicitly throw an error if <code>response.ok is falsy</code>
+</li>
+</ul>

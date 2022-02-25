@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="JSX" />
+
+# JSX
+
+<h4>JSX is popular way to write markup data inside component</h4>
+<p>More information on JSX can be found <a 
+href="https://reactjs.org/docs/introducing-jsx.html"
+target="_blank"
+>&nbsp;here</a></p>
+
+```javascript
+const myConstant = 'hello world';
+function DisplayData({data}) {
+  return (
+    <p>this block displays passed data: {data}</p>
+  );
+}
+```
