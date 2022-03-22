@@ -11,7 +11,10 @@ import { Meta } from '@storybook/addon-docs';
 libraries like <code>axios</code> for adding <code>interceptors</code>
 </li>
 <li>
-libraries like <code>react-query</code> or <code>swr</code> for advanced techniques
+    <p>
+        libraries like <code>react-query</code> or <code>swr</code> for advanced techniques.
+        More information <a href="#hook-based">here</a>
+    </p>
 </li>
 </ul>
 <h4>Javascript concepts required/good to know:</h4>
@@ -30,11 +33,15 @@ libraries like <code>react-query</code> or <code>swr</code> for advanced techniq
 </li>
 </ul>
 
+<section id="code-examples">
 
 [Code example of data fetching using fetch](https://github.com/Nuvalence/react-cook-book/blob/master/src/components/screens/DataFetching/Fetch/index.tsx)
 
 
 [Code example of data fetching using axios](https://github.com/Nuvalence/react-cook-book/blob/master/src/components/screens/DataFetching/Axios/index.tsx)
+
+[Code example of data fetching using swr](https://github.com/Nuvalence/react-cook-book/blob/master/src/components/screens/DataFetching/SWR/index.tsx)
+</section>
 <h4>
 For data fetching <code>useEffect</code> can be used to execute callbacks
 </h4>
@@ -175,3 +182,15 @@ It can become cumbersome if we have to make Api calls in multiple components
 We would require some sort of middleware to explicitly throw an error if <code>response.ok is falsy</code>
 </li>
 </ul>
+<h3>Hook based data fetching</h3>
+<section id="hook-based">
+    <ul>
+        <li>
+            Hooks makes it easy to share logic across different components. It also helps to keep code declarative way
+        </li>
+        <li>
+            Libraries like <code>swr</code>, <code>useAxios</code>, <code>react-query</code> are helpful for this approach
+        </li>
+    </ul>
+    <p>From the code examples <a href="#code-examples">above</a> we can see that using hook based approach makes code easy to read and share logic across components easily</p>
+</section>
