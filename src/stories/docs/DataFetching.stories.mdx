@@ -192,5 +192,26 @@ We would require some sort of middleware to explicitly throw an error if <code>r
             Libraries like <code>swr</code>, <code>useAxios</code>, <code>react-query</code> are helpful for this approach
         </li>
     </ul>
-    <p>From the code examples <a href="#code-examples">above</a> we can see that using hook based approach makes code easy to read and share logic across components easily</p>
+
+```javascript
+import axios from 'axios';
+import useSwr from 'swr';
+
+const fetcher = url => axios.get(url).then(res => res.data)
+
+function App () {
+  const { data, error } = useSWR('url', fetcher); // swr returns data, error, isvalidating and mutation function
+  return (
+    <>
+      {error && (<p>show error message here</p>)}
+      {data.length > 0 && (
+        <ul>
+          {data.map(data => (<li key={data.id}>{data.name}</li>))}
+        </ul>
+      )}
+    </>
+  );
+}
+```
+
 </section>
