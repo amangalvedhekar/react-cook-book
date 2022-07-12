@@ -7,6 +7,8 @@ import Flow from './assets/flow.svg';
 import Plugin from './assets/plugin.svg'; 
 import Repo from './assets/repo.svg';
 import StackAlt from './assets/stackalt.svg'; 
+import Expo from './assets/expo.svg';
+import Snack from './assets/snack.svg';
 import LinkTo from '@storybook/addon-links/react';
 
 <Meta title="Introduction/Overview" />
@@ -48,7 +50,7 @@ import LinkTo from '@storybook/addon-links/react';
   }
 
   .link-item {
-    display: block;
+   
     padding: 20px 30px 20px 15px;
     border: 1px solid #00000010;
     border-radius: 5px;
@@ -123,11 +125,11 @@ import LinkTo from '@storybook/addon-links/react';
 
 # Welcome to React cookbook
 
-React is Javascript library to build UI components in functional reactive paradigm
+<p>React is Javascript library to build UI components in functional reactive paradigm</p>
+<p>React Native is a framework to build hybrid apps that can run on platforms like android, iOS</p>
+<p>It's recommended to build UIs with a <a href="https://componentdriven.org" target="_blank">component-driven</a> process starting with atomic components and ending with pages.</p>
 
-It's recommended to build UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages.
-
-<div className="subheading">Learn More</div>
+<div className="subheading">React</div>
 
 <div className="link-list">
   <a
@@ -171,7 +173,57 @@ It's recommended to build UIs with a [**component-driven**](https://componentdri
     </span>
   </a>
 </div>
-
+<div className="subheading">React Native</div>
+<div className="link-list">
+<a
+    className="link-item"
+    href="https://reactnative.dev/"
+    target="_blank"
+  >
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>Official React Native docs</strong>
+    </span>
+  </a>
+<a
+    className="link-item"
+    href="https://expo.dev/"
+    target="_blank"
+  >
+    <img src={Expo} alt="plugin" />
+    <span>
+      <strong>Official Expo docs</strong>
+    </span>
+  </a>
+<LinkTo
+    className="link-item"
+   kind="reactnative-tools--overview"
+  >
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>React Native tools</strong>
+    </span>
+  </LinkTo>
+<LinkTo
+    className="link-item"
+    kind="reactnative-miscellaneousinfo--overview"
+  >
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>Miscellaneous Info</strong>
+    </span>
+  </LinkTo>
+<a
+    className="link-item"
+    href="https://snack.expo.dev/"
+    target="_blank"
+  >
+    <img src={Snack} alt="plugin" />
+    <span>
+      <strong>Playground to learn React Native</strong>
+    </span>
+  </a>
+</div>
 <div className="subheading">Building blocks</div>
 
 <div className="link-list">
